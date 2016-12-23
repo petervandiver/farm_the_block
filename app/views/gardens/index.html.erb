@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gardens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Name</th>
+      <th>Street addr</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Primary image</th>
+      <th>Primary background</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gardens.each do |garden| %>
+      <tr>
+        <td><%= garden.city_id %></td>
+        <td><%= garden.name %></td>
+        <td><%= garden.street_addr %></td>
+        <td><%= garden.city %></td>
+        <td><%= garden.state %></td>
+        <td><%= garden.zip %></td>
+        <td><%= garden.primary_image %></td>
+        <td><%= garden.primary_background %></td>
+        <td><%= link_to 'Show', garden %></td>
+        <td><%= link_to 'Edit', edit_garden_path(garden) %></td>
+        <td><%= link_to 'Destroy', garden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garden', new_garden_path %>
