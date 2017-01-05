@@ -11,9 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
+
+<p>Which Farm the Block city?
+    <%= f.collection_select :city_id, City.all, :id, :name %>
+</p>
+
   </div>
   <div class="field">
     <%= f.label :name %><br>
@@ -24,8 +26,8 @@
     <%= f.text_field :street_addr %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.label :street_addr_city %><br>
+    <%= f.text_field :street_addr_city %>
   </div>
   <div class="field">
     <%= f.label :state %><br>

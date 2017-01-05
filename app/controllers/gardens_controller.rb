@@ -5,16 +5,19 @@ class GardensController < ApplicationController
   # GET /gardens.json
   def index
     @gardens = Garden.all
+    @cities = City.all
   end
 
   # GET /gardens/1
   # GET /gardens/1.json
   def show
+    @cities = City.all
   end
 
   # GET /gardens/new
   def new
     @garden = Garden.new
+    @cities = City.all
   end
 
   # GET /gardens/1/edit
@@ -28,7 +31,7 @@ class GardensController < ApplicationController
 
     respond_to do |format|
       if @garden.save
-        format.html { redirect_to @garden, notice: 'Garden was successfully created.' }
+        format.html { redirect_to gardens_url, notice: 'Garden was successfully created.' }
         format.json { render :show, status: :created, location: @garden }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class GardensController < ApplicationController
   def update
     respond_to do |format|
       if @garden.update(garden_params)
-        format.html { redirect_to @garden, notice: 'Garden was successfully updated.' }
+        format.html { redirect_to gardens_url, notice: 'Garden was successfully updated.' }
         format.json { render :show, status: :ok, location: @garden }
       else
         format.html { render :edit }
@@ -64,11 +67,11 @@ class GardensController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_garden
-      @garden = Garden.find(params[:id])
+      @garden = Garden.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_params
-      params.require(:garden).permit(:city_id, :name, :street_addr, :city, :state, :zip, :primary_image, :primary_background)
+      params.require(:garden).permit(:city_id, :name, :street_addr, :street_addr_city, :state, :zip, :primary_image, :primary_background)
     end
 end

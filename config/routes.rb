@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
   
-
-  resources :cities, :path => '', only: [:index, :show]  do
-    resources :gardens, :path => '', :except => [:index]
-  end
-
-
   devise_for :users
-
-  resources :profiles
- 
  
   get 'home/index'
 
   root 'home#index'
+
+  resources :profiles
+
+  resources :cities, :path => '', only: [:index, :show]  do
+    resources :gardens, :path => '', only: [:show]
+  end
+
+
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

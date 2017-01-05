@@ -1,4 +1,11 @@
 
-<p>Find me in app/views/cities/show.html.erb</p>
 
 <h1><%= @city.name %></h1>
+
+
+<div>
+<% @city_gardens.each do |garden| %>
+	
+	<div id="garden_id=<%=garden.id%>"><%= link_to garden.name, city_garden_path(@city, garden) %></div>
+<% end %>
+</div>

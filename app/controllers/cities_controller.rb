@@ -3,10 +3,12 @@ class CitiesController < ApplicationController
 
 
   def index
+  @cities = City.all
   end
 
   def show
-
+  @cities = City.all
+  @city_gardens = Garden.where('city_id = ?', @city.id)
   end
 
   private

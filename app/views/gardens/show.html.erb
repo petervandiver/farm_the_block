@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>City:</strong>
-  <%= @garden.city_id %>
-</p>
 
 <p>
   <strong>Name:</strong>
@@ -17,7 +13,7 @@
 
 <p>
   <strong>City:</strong>
-  <%= @garden.city %>
+  <%= @garden.street_addr_city %>
 </p>
 
 <p>
@@ -30,15 +26,7 @@
   <%= @garden.zip %>
 </p>
 
-<p>
-  <strong>Primary image:</strong>
-  <%= @garden.primary_image %>
-</p>
 
-<p>
-  <strong>Primary background:</strong>
-  <%= @garden.primary_background %>
-</p>
 
-<%= link_to 'Edit', edit_garden_path(@garden) %> |
-<%= link_to 'Back', gardens_path %>
+
+
